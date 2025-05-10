@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Happy Birthday Meenakshi!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0; padding: 0;
+            height: 100%;
+            background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+            font-family: 'Open Sans', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            padding: 45px 35px;
+            box-shadow: 0 25px 60px rgba(255, 78, 78, 0.5);
+            text-align: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #e94e77;
+            margin-bottom: 10px;
+            animation: heartbeat 2s infinite;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .comrade-statement {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #7a3e53;
+    margin-top: -10px;
+    margin-bottom: 18px;
+    font-style: italic;
+    letter-spacing: 1.5px;
+    user-select: none;
+  }
+
+        .message {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            background: #e94e77;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            box-shadow: 0 8px 20px rgba(233,78,119,0.4);
+        }
+
+        .button:hover {
+            background: #d43e65;
+        }
+
+        #hiddenMessage {
+            margin-top: 25px;
+            color: #d43e65;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.05); }
+            40% { transform: scale(0.95); }
+            60% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background: #ff6b81;
+            transform: rotate(45deg);
+            animation: floatHearts 10s linear infinite;
+            opacity: 0.7;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #ff6b81;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -7.5px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: -7.5px;
+        }
+
+        @keyframes floatHearts {
+            0% {
+                bottom: -10%;
+                left: calc(100% * var(--i));
+                transform: scale(1) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                bottom: 110%;
+                left: calc(100% * var(--i) + 40px);
+                transform: scale(0.5) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .images-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .images-container img {
+            max-width: 100px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Floating hearts -->
+    <div class="heart" style="--i:0.1;"></div>
+    <div class="heart" style="--i:0.3;"></div>
+    <div class="heart" style="--i:0.5;"></div>
+    <div class="heart" style="--i:0.7;"></div>
+    <div class="heart" style="--i:0.9;"></div>
+
+    <div class="container">
+        <h1>Happy Birthday</h1>
+        <h2>Meenakshi</h2>
+        <div class="comrade-statement">Together as comrades, always stronger and brighter.</div>
+        <div class="message" id="messageArea">Hope your special day is filled with love, laughter, and unforgettable moments!</div>
+        <button class="button" id="revealBtn">Reveal Your Special Message</button>
+        <div id="hiddenMessage">You are truly amazing and deserve all the happiness in the world! 🎉❤️</div>
+        <div id="hiddenMessage">You are truly amazing and deserve all the happiness in the world! 🎉❤️</div>
+
+        <div class="images-container">
+            <img src="imgs/IMG_20211119_233339_483.jpg" alt="Friends Celebration 1" />
+            <img src="imgs/IMG_20211119_233651_544.jpg" alt="Friends Celebration 2" />
+            <img src="imgs/IMG_20211123_234113_892.jpg" alt="Friends Celebration 3" />
+        </div>
+    </div>
+    <audio id="birthdayAudio" loop>
+        <source src="birthday_song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <button class="music-toggle" aria-label="Toggle birthday music" title="Toggle birthday music" aria-pressed="false" style="position: fixed; top: 15px; right: 20px; background: transparent; border: none; cursor: pointer; outline: none;">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="fill: #e94e77; width: 30px; height: 30px; transition: fill 0.3s ease;">
+            <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+            <path d="M16 7v10h2V7h-2z"/>
+            <path d="M20 7v10h2V7h-2z"/>
+        </svg>
+    </button>
+    <script>
+        const birthdayAudio = document.getElementById('birthdayAudio');
+        const musicToggleBtn = document.querySelector('.music-toggle');
+        musicToggleBtn.addEventListener('click', () => {
+            if (birthdayAudio.paused) {
+                birthdayAudio.play();
+                musicToggleBtn.setAttribute('aria-pressed', 'true');
+                musicToggleBtn.querySelector('svg').style.fill = '#d43e65';
+            } else {
+                birthdayAudio.pause();
+                musicToggleBtn.setAttribute('aria-pressed', 'false');
+                musicToggleBtn.querySelector('svg').style.fill = '#e94e77';
+            }
+
+    <script>
+        const revealBtn = document.getElementById('revealBtn');
+        const hiddenMessage = document.getElementById('hiddenMessage');
+        const messageArea = document.getElementById('messageArea');
+
+        revealBtn.addEventListener('click', () => {
+            if (hiddenMessage.style.display === 'none' || hiddenMessage.style.display === '') {
+                hiddenMessage.style.display = 'block';
+                revealBtn.textContent = 'Hide Your Special Message';
+                messageArea.textContent = 'Wishing you joy and smiles beyond measure!';
+            } else {
+                hiddenMessage.style.display = 'none';
+                revealBtn.textContent = 'Reveal Your Special Message';
+                messageArea.textContent = 'Hope your special day is filled with love, laughter, and unforgettable moments!';
+            }
+        });
+    </script>
+</body>
+</html>
